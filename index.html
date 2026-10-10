@@ -1,152 +1,490 @@
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <META name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Una invitación misteriosa</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d20">
+  <title>Constelación Azul ✦</title>
 
-    <style>
-      *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        }
+  <style>
+    :root {
+      --night: #080d20;
+      --blue: #8dbdff;
+      --violet: #c4a0ff;
+      --white: #f5f1ff;
+    }
 
-      body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        font-family: Georgia, "Times New Roman", serif;
-        color: #f7edf5;
-        background:
-          radial-gradient(ellipse at top, #38213f 0%, transparent 55%),
-          linear-gradient(145deg, #100d18, #100d18 55%, #080810);
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      .invitation {
-        width: 100%;
-        max-width: 520px;
-        padding: 42px 26px;
-        text-align: center;
-        border: 1px solid #8c6b9a;
-        border-radius: 18px;
-        background: rgba (15, 10, 22, 0.76);
-        box-shadow: 0 0 45px rgba(151, 91, 177, 0.16);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      .symbol {
-        color: #c9a8dc;
-        font-size: 32px;
-        margin-bottom: 24px;
-        }
+    body {
+      min-height: 100vh;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 50% 0%, #243663 0%, transparent 48%),
+        radial-gradient(ellipse at 90% 60%, #261a48 0%, transparent 45%),
+        var(--night);
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
 
-      .eyebrow {
-        color: #c9a8dc;
-        font-family: Arial, sans-serif;
-        font-size: 11px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        }
-      h1 {
-        font-size: clamp(34px, 8vw, 49px);
-        font-weight: normal;
-        line-height: 1.2;
-        margin-bottom: 22px;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .4;
+      z-index: -1;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, white 99%, transparent),
+        radial-gradient(2px 2px at 75% 30%, #bca8ff 99%, transparent),
+        radial-gradient(1px 1px at 45% 75%, white 99%, transparent),
+        radial-gradient(2px 2px at 85% 85%, #91c9ff 99%, transparent),
+        radial-gradient(1px 1px at 25% 90%, white 99%, transparent);
+      background-size: 180px 180px;
+    }
 
-      .message {
-        color: #d8ccdf;
-        font-size: 17px;
-        line-height: 1.9;
-        margin-bottom: 30 px;
-        }
+    .page {
+      width: min(100% - 30px, 950px);
+      margin: auto;
+    }
 
-      button {
-        padding: 14px 25px;
-        border: 1px solid #b99bc9;
-        border-radius: 30px;
-        color: #fff;
-        backgorund: transparent; 
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-        letter-sapcing: 2px;
-        cursor: pointer;
-        transition: background 0.3s, color 0.3s;
-        }
+    .hero {
+      min-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 10px;
+    }
 
-      button:hover {
-        backgorund: #c9a8dc;
-        color: #160d1b;
-        }
+    .star {
+      color: var(--violet);
+      font-size: 44px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 25px #a779ff;
+      animation: twinkle 3s infinite alternate;
+    }
 
-      #reveal {
-        display: none;
-        margin-top: 26px;
-        color:#eadcf0;
-        font-size: 17px;
-        line-height: 1.8;
-        animation: appear 1s ease;
-        }
+    .eyebrow {
+      color: var(--blue);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
 
-      footer {
-        margin-top: 35px;
-        color: #9c8ca5;
-        font-family: Arial, sans-rerif;
-        font-size: 10px;
-        letter-spacing: 2px;
-       }
-      @keyframes appear {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-          }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-          }
-        }
-        
-    </style>
-  </head>
+    h1 {
+      font-size: clamp(42px, 9vw, 78px);
+      font-weight: normal;
+      line-height: 1.05;
+      text-shadow: 0 0 35px #719bff55;
+    }
 
-  <body>
-    <main class="invitation">
-      <div class="symbol">✦</div>
+    .subtitle {
+      max-width: 540px;
+      margin-top: 25px;
+      color: #d2cde7;
+      font-size: 17px;
+      line-height: 1.9;
+    }
 
-      <p class="eyerow">Una invitación para alguien especial</p>
-      <h1>Hay encuentros<br>que merecen suceder.</h1>
-      <div class="divider"></div>
+    .button {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 15px 25px;
+      border: 1px solid var(--violet);
+      border-radius: 40px;
+      color: white;
+      background: linear-gradient(120deg, #253e71, #53346f);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: .3s;
+    }
 
-      <p class="message">
-        Algunas cosas no necesitan anunciarse.
-        Solo necesitan el momento indicado,
-        la compañía correcta y un poco de misterio.
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px #a779ff55;
+    }
+
+    .section {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+      font-size: clamp(30px, 6vw, 44px);
+      font-weight: normal;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: 0 auto 35px;
+      color: #c9c8df;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: center;
+    }
+
+    .photo {
+      padding: 9px 9px 17px;
+      background: #f3eff7;
+      border-radius: 3px;
+      box-shadow: 0 0 22px #9275d522, 0 8px 25px #0008;
+      color: #29203b;
+      transform: rotate(-2deg);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .photo:nth-child(even) {
+      transform: rotate(2deg);
+    }
+
+    .photo:hover {
+      transform: rotate(0) scale(1.035);
+      box-shadow: 0 0 30px #b99aff77;
+      z-index: 2;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #20243c;
+    }
+
+    .photo figcaption {
+      padding-top: 12px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .photo.center {
+      grid-column: 2;
+      grid-row: span 2;
+      transform: rotate(0);
+      padding: 10px 10px 20px;
+      box-shadow: 0 0 35px #779cff55;
+    }
+
+    .photo.center img {
+      height: 300px;
+    }
+
+    .letter {
+      max-width: 690px;
+      margin: 15px auto;
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid #7c73b5;
+      border-radius: 14px;
+      background: #10142aab;
+      box-shadow: 0 0 40px #6c5bb522;
+      text-align: left;
+    }
+
+    .letter p {
+      color: #e1dced;
+      font-size: 17px;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      color: var(--blue) !important;
+      text-align: right;
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .revealed {
+      display: block;
+      animation: appear 1s ease both;
+    }
+
+    .music-card {
+      max-width: 560px;
+      margin: 25px auto;
+      padding: 25px;
+      border: 1px solid #514b83;
+      border-radius: 14px;
+      background: #11152bbd;
+    }
+
+    .music-card p {
+      color: #cfcae5;
+      line-height: 1.8;
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 45px 10px;
+      text-align: center;
+      color: #9794b7;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes twinkle {
+      from { opacity: .65; }
+      to { opacity: 1; text-shadow: 0 0 35px #a779ff; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .photo img {
+        height: 150px;
+      }
+
+      .photo.center {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        width: 78%;
+        justify-self: center;
+      }
+
+      .photo.center img {
+        height: 300px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <section class="hero">
+      <div class="star">✦</div>
+      <p class="eyebrow">Una invitación secreta</p>
+      <h1>Constelación<br>Azul</h1>
+
+      <p class="subtitle">
+        Hay personas que llegan a nuestras vidas
+        y convierten un instante cualquiera
+        en algo que vale la pena recordar.
       </p>
 
-      <button id="revealbutton" type="button">
-        DESCUBRIR INVITACIÓN
+      <button class="button" id="openButton">
+        ABRIR LA INVITACIÓN ✦
       </button>
+    </section>
 
-      <p id="reveal">
-        Hay algo que me gustaría compartir contigo.<br>
-        ¿Te gustaría decubrirlo?
-      </p>
+    <div id="invitationContent" class="hidden">
 
-      <footer>UNA HISTORIA POR DESCUBRIR</footer>
-    </main>
+      <!-- COLLAGE INICIAL: CAMISA AZUL + FOTOS 2, 6, 7, 8 Y WHATSAPP -->
+      <section class="section">
+        <p class="eyebrow">Un pequeño universo</p>
+        <h2>Constelación de Dessi</h2>
 
-    <script>
-      const button = document.getElementById("revealButton");
-      const message = document.getElementById("reveal");
+        <p class="description">
+          Cada estrella guarda un instante.
+          Estos son algunos de los que merecen
+          tener un lugar en esta constelación.
+        </p>
 
-      button.addEventListener("click", () => {
-        message.style.display = "block";
-        button.textContent = "EL MISTERIO CONTINÚA";
-      });  
-    </script>
-  </body>
+        <div class="gallery">
+
+          <figure class="photo">
+            <img src="Foto 2.jpeg" alt="Fotografía de Dessi">
+            <figcaption>Estrella I ✦</figcaption>
+          </figure>
+
+          <figure class="photo center">
+            <img src="Camisa Azul Dess.jpeg" alt="Dessi con camisa azul">
+            <figcaption>Mi estrella azul</figcaption>
+          </figure>
+
+          <figure class="photo">
+            <img src="foto 6.jpeg" alt="Fotografía de Dessi">
+            <figcaption>Estrella II ✦</figcaption>
+          </figure>
+
+          <figure class="photo">
+            <img src="foto 7.jpeg" alt="Fotografía de Dessi">
+            <figcaption>Estrella III ✦</figcaption>
+          </figure>
+
+          <figure class="photo">
+            <img src="foto 8.jpeg" alt="Fotografía de Dessi">
+            <figcaption>Estrella IV ✦</figcaption>
+          </figure>
+
+          <figure class="photo">
+            <img src="WhatsApp Image 2026-10-09 at 11.25.31 AM.jpeg" alt="Fotografía especial">
+            <figcaption>Estrella V ✦</figcaption>
+          </figure>
+
+        </div>
+      </section>
+
+      <!-- CARTA -->
+      <section class="section">
+        <p class="eyebrow">Entre tantas estrellas</p>
+        <h2>Hay algo que quiero decirte</h2>
+
+        <div class="letter">
+          <p>Dessi:</p>
+
+          <p>
+            A veces, las mejores invitaciones no necesitan
+            grandes explicaciones. Basta con las ganas de
+            compartir un momento, reírnos un rato y crear
+            un recuerdo que sea solamente nuestro.
+          </p>
+
+          <p>
+            Así que preparé este pequeño rincón para ti.
+            No hay respuestas que tengas que dar ni
+            expectativas que cumplir; solamente una
+            invitación sincera a compartir algo bonito.
+          </p>
+
+          <p>
+            ¿Te animas a descubrir lo que sigue?
+          </p>
+
+          <p class="signature">Con cariño, para ti. ✦</p>
+        </div>
+      </section>
+
+      <!-- DESPUÉS DE ESTE BOTÓN APARECEN ÚNICAMENTE FOTOS 3, 4 Y 5 -->
+      <section class="section">
+        <p class="eyebrow">Todavía hay más</p>
+        <h2>Otras estrellas</h2>
+
+        <p class="description">
+          Porque una sola página no alcanza para guardar
+          todos los pequeños detalles.
+        </p>
+
+        <button class="button" id="memoriesButton">
+          DESCUBRIR MÁS RECUERDOS
+        </button>
+
+        <div id="moreMemories" class="hidden">
+          <div class="gallery" style="margin-top: 35px;">
+
+            <figure class="photo">
+              <img src="Foto 3.jpeg" alt="Fotografía especial">
+              <figcaption>Un instante ✦</figcaption>
+            </figure>
+
+            <figure class="photo">
+              <img src="foto 4.jpeg" alt="Fotografía especial">
+              <figcaption>Otra estrella ✦</figcaption>
+            </figure>
+
+            <figure class="photo">
+              <img src="foto 5.jpeg" alt="Fotografía especial">
+              <figcaption>Un recuerdo ✦</figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- MÚSICA -->
+      <section class="section">
+        <p class="eyebrow">La banda sonora</p>
+        <h2>Die For You</h2>
+
+        <div class="music-card">
+          <div class="star">♫</div>
+          <h3>STARSET</h3>
+
+          <p>
+            Una canción para acompañar esta pequeña
+            constelación.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.youtube.com/results?search_query=STARSET+Die+For+You+acoustic"
+            target="_blank"
+            rel="noopener noreferrer">
+            BUSCAR VERSIÓN ACÚSTICA ♫
+          </a>
+
+          <p style="font-size: 12px;">
+            El enlace abre YouTube para elegir la versión
+            y reproducirla.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      CONSTELACIÓN AZUL · UN PEQUEÑO UNIVERSO PARA TI ✦
+    </footer>
+
+  </main>
+
+  <script>
+    const openButton = document.getElementById("openButton");
+    const invitationContent = document.getElementById("invitationContent");
+    const memoriesButton = document.getElementById("memoriesButton");
+    const moreMemories = document.getElementById("moreMemories");
+
+    openButton.addEventListener("click", () => {
+      invitationContent.classList.remove("hidden");
+      invitationContent.classList.add("revealed");
+      openButton.textContent = "INVITACIÓN ABIERTA ✦";
+      openButton.disabled = true;
+
+      invitationContent.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+    memoriesButton.addEventListener("click", () => {
+      moreMemories.classList.remove("hidden");
+      moreMemories.classList.add("revealed");
+      memoriesButton.textContent = "RECUERDOS DESCUBIERTOS ✦";
+      memoriesButton.disabled = true;
+    });
+  </script>
+</body>
 </html>
