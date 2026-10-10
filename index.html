@@ -685,6 +685,122 @@ body.invitation-opening {
 }
 
     
+/* Secreto final de Constelación Azul */
+.secreto-final {
+  max-width: 620px;
+  margin: 55px auto 35px;
+  padding: 30px 22px;
+  text-align: center;
+  border-top: 1px solid rgba(169, 201, 255, 0.35);
+  border-bottom: 1px solid rgba(169, 201, 255, 0.35);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(55, 91, 170, 0.18),
+    transparent 75%
+  );
+}
+
+.secreto-etiqueta {
+  color: #a9c9ff;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.secreto-final h2,
+.mensaje-secreto h3 {
+  color: #e5edff;
+  font-weight: 400;
+  line-height: 1.5;
+  text-shadow: 0 0 16px rgba(75, 130, 255, 0.25);
+}
+
+.secreto-final h2 {
+  font-size: clamp(21px, 4vw, 29px);
+}
+
+.secreto-intro,
+.mensaje-secreto p {
+  color: #c3d5f5;
+  line-height: 1.9;
+}
+
+#botonSecreto {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 20px;
+  padding: 14px 20px;
+  border: 1px solid rgba(169, 201, 255, 0.65);
+  border-radius: 10px;
+  background: #273b70;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#botonSecreto:hover {
+  background: #354c87;
+  box-shadow: 0 0 20px rgba(167, 121, 255, 0.25);
+}
+
+#botonSecreto:focus-visible {
+  outline: 2px solid #c7a8ff;
+  outline-offset: 4px;
+}
+
+.mensaje-secreto {
+  margin-top: 30px;
+  padding: 25px 10px 5px;
+  border-top: 1px solid rgba(167, 121, 255, 0.3);
+}
+
+.mensaje-secreto.oculto {
+  display: none;
+}
+
+.mensaje-secreto.revelado {
+  display: block;
+  animation: revelarConstelacion 1.8s ease-out both;
+}
+
+.secreto-destello {
+  color: #c7a8ff;
+  font-size: 38px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(167, 121, 255, 0.6);
+}
+
+.mensaje-secreto h3 {
+  font-size: clamp(22px, 4vw, 28px);
+}
+
+.mensaje-secreto .secreto-coqueto {
+  margin-top: 24px;
+  color: #c7a8ff;
+  font-style: italic;
+}
+
+.secreto-firma {
+  margin-top: 28px;
+  color: #a9c9ff;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #botonSecreto {
+    transition: none;
+  }
+
+  .mensaje-secreto.revelado {
+    animation: none;
+  }
+}
+
+    
   </style>
 </head>
 
@@ -770,6 +886,70 @@ body.invitation-opening {
   <div class="dedicatoria-firma">CONSTELACIÓN AZUL</div>
 </div>
 
+  
+<!-- SECRETO FINAL PARA DESI -->
+<section class="secreto-final" id="secretoFinal">
+
+  <div class="secreto-etiqueta">
+    ✦ ÚLTIMO MENSAJE DETECTADO ✦
+  </div>
+
+  <h2>Desi… ¿pensabas que eso era todo?</h2>
+
+  <p class="secreto-intro">
+    Hay secretos que pierden su encanto cuando se cuentan
+    demasiado pronto…
+  </p>
+
+  <p class="secreto-intro">
+    Y este, sinceramente, me gustaría que lo descubrieras tú.
+  </p>
+
+  <button
+    type="button"
+    id="botonSecreto"
+    aria-controls="mensajeSecreto"
+    aria-expanded="false"
+  >
+    ✦ Descubrir el último secreto ✦
+  </button>
+
+  <div
+    class="mensaje-secreto oculto"
+    id="mensajeSecreto"
+    aria-hidden="true"
+  >
+    <div class="secreto-destello">✧</div>
+
+    <div class="secreto-etiqueta">
+      TRANSMISIÓN DESCLASIFICADA
+    </div>
+
+    <h3>Te confieso algo, Desi…</h3>
+
+    <p>
+      Entre tantas estrellas, hay una que tiene una extraña
+      habilidad para robarse mi atención sin siquiera intentarlo.
+    </p>
+
+    <p>
+      Y lo curioso es que, cuanto más intento descifrar su misterio,
+      más ganas me dan de seguir descubriéndolo.
+    </p>
+
+    <p class="secreto-coqueto">
+      Creo que ya sabes de quién estoy hablando…
+      aunque quizá prefieras hacerte la distraída. 😉
+    </p>
+
+    <div class="secreto-firma">
+      FIN DE LA TRANSMISIÓN ✦ ¿O NO?
+    </div>
+  </div>
+
+</section>
+<!-- FIN DEL SECRETO FINAL -->
+        
 
         </div>
       </section>
@@ -936,6 +1116,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+  const botonSecreto = document.getElementById("botonSecreto");
+  const mensajeSecreto = document.getElementById("mensajeSecreto");
+
+  if (botonSecreto && mensajeSecreto) {
+    botonSecreto.addEventListener("click", () => {
+      mensajeSecreto.classList.remove("oculto");
+      mensajeSecreto.classList.add("revelado");
+      mensajeSecreto.setAttribute("aria-hidden", "false");
+
+      botonSecreto.textContent = "✦ Secreto descubierto ✦";
+      botonSecreto.setAttribute("aria-expanded", "true");
+      botonSecreto.disabled = true;
+    });
+  }
+  
+  
 </script>
 </body>
 
