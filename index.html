@@ -544,6 +544,30 @@ body.invitation-opening {
     opacity: 0;
   }
 }
+
+
+/* Resplandor cósmico del título */
+.hero h1 {
+  text-shadow:
+    0 0 8px rgba(100, 180, 255, 0.35),
+    0 0 18px rgba(75, 130, 255, 0.25);
+  animation: resplandorCosmico 5s ease-in-out infinite;
+}
+
+@keyframes resplandorCosmico {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(100, 180, 255, 0.25),
+      0 0 18px rgba(75, 130, 255, 0.15);
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px rgba(100, 180, 255, 0.6),
+      0 0 28px rgba(75, 130, 255, 0.4);
+  }
+}
+
     
   </style>
 </head>
