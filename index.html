@@ -1,0 +1,153 @@
+</>HTML
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <META name="viewport" content="width, initial-scale=1.0">
+    <title>Una invitación misteriosa</title>
+
+    <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        font-family: Georgia, "Times New Roman", serif;
+        color: #f7edf5;
+        background:
+          radial-gradient(ellipse at top, #38213f 0%, transparent 55%),
+          linear-gradient(145deg, #100d18, #100d18 55%, #080810);
+        }
+
+      .invitation {
+        width: 100%;
+        max-width: 520px;
+        padding: 42px 26px;
+        text-align: center;
+        border: 1px solid #8c6b9a;
+        border-radius: 18px;
+        background: rgba (15, 10, 22, 0.76);
+        box-shadow: 0 0 45px rgba(151, 91, 177, 0.16);
+        }
+
+      .symbol {
+        color: #c9a8dc;
+        font-size: 32px;
+        margin-bottom: 24px;
+        }
+
+      .eyebrow {
+        color: #c9a8dc;
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        }
+      h1 {
+        font-size: clamp(34px, 8vw, 49px);
+        font-weight: normal;
+        line-height: 1.2;
+        margin-bottom: 22px;
+        }
+
+      .message {
+        color: #d8ccdf;
+        font-size: 17px;
+        line-height: 1.9;
+        margin-bottom: 30 px;
+        }
+
+      button {
+        padding: 14px 25px;
+        border: 1px solid #b99bc9;
+        border-radius: 30px;
+        color: #fff;
+        backgorund: transparent; 
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-sapcing: 2px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        }
+
+      button:hover {
+        backgorund: #c9a8dc;
+        color: #160d1b;
+        }
+
+      #reveal {
+        display: none;
+        margin-top: 26px;
+        color:#eadcf0;
+        font-size: 17px;
+        line-height: 1.8;
+        animation: appear 1s ease;
+        }
+
+      footer {
+        margin-top: 35px;
+        color: #9c8ca5;
+        font-family: Arial, sans-rerif;
+        font-size: 10px;
+        letter-spacing: 2px;
+       }
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+          }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          }
+        }
+        
+    </style>
+  </head>
+
+  <body>
+    <main class="invitation">
+      <div class="symbol">✦</div>
+
+      <p class="eyerow">Una invitación para alguien especial</p>
+      <h1>Hay encuentros<br>que merecen suceder.</h1>
+      <div class="divider"></div>
+
+      <p class="message">
+        Algunas cosas no necesitan anunciarse.
+        Solo necesitan el momento indicado,
+        la compañía correcta y un poco de misterio.
+      </p>
+
+      <button id="revealbutton" type="button">
+        DESCUBRIR INVITACIÓN
+      </button>
+
+      <p id="reveal">
+        Hay algo que me gustaría compartir contigo.<br>
+        ¿Te gustaría decubrirlo?
+      </p>
+
+      <footer>UNA HISTORIA POR DESCUBRIR</footer>
+    </main>
+
+    <script>
+      const button = document.getElementById("revealButton");
+      const message = document.getElementById("reveal");
+
+      button.addEventListener("click", () => {
+        message.style.display = "block";
+        button.textContent = "EL MISTERIO CONTINÚA";
+      });  
+    </script>
+  </body>
+</html>
