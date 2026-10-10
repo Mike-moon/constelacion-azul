@@ -586,6 +586,28 @@ body.invitation-opening {
   }
 }
 
+    @keyframes revelarConstelacion {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(12px);
+    text-shadow: 0 0 25px rgba(167, 121, 255, 0);
+  }
+
+  60% {
+    opacity: 0.75;
+    filter: blur(1px);
+    transform: translateY(0);
+    text-shadow: 0 0 18px rgba(167, 121, 255, 0.25);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    text-shadow: 0 0 8px rgba(167, 121, 255, 0.12);
+  }
+}
 
 /* El título conserva su resplandor azul */
 .hero h1 {
@@ -616,15 +638,19 @@ body.invitation-opening {
   text-align: center;
   border-top: 1px solid rgba(167, 121, 255, 0.35);
   border-bottom: 1px solid rgba(167, 121, 255, 0.35);
+
   background: radial-gradient(
     ellipse at center,
     rgba(55, 91, 170, 0.16),
     transparent 75%
   );
-  animation: aparecerSuave 2s ease-out both;
-  animation-delay: 1s;
-}
 
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(12px);
+
+  animation: revelarConstelacion 2.8s ease-out 1s forwards;
+}
 .dedicatoria-linea {
   color: #a9c9ff;
   font-size: 11px;
