@@ -806,6 +806,7 @@ invitationContent.scrollIntoView({
   </script>
   
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
   const botones = [...document.querySelectorAll("button")];
 
@@ -813,33 +814,32 @@ document.addEventListener("DOMContentLoaded", () => {
     boton.textContent.toUpperCase().includes("ABRIR LA INVITACIÓN")
   );
 
-  if (botonAbrir) {
-    botonAbrir.addEventListener("click", () => {
-      document.body.classList.add("invitation-opening");
-      document.body.classList.add("invitation-open");
+  if (!botonAbrir) return;
 
-      window.setTimeout(() => {
-        document.body.classList.remove("invitation-opening");
-      }, 1300);
+  botonAbrir.addEventListener("click", () => {
+    document.body.classList.add("invitation-opening");
+    document.body.classList.add("invitation-open");
 
-      const contenido = document.querySelectorAll(
-        "section, .gallery, .collage, .letter, .music-section"
-      );
+    window.setTimeout(() => {
+      document.body.classList.remove("invitation-opening");
+    }, 1300);
 
-openButton.addEventListener("click", () => {
-  invitationContent.classList.remove("hidden");
-  invitationContent.classList.add("revealed");
-  openButton.textContent = "INVITACIÓN ABIERTA ✦";
-  openButton.disabled = true;
+    const invitationContent = document.getElementById("invitationContent");
 
-  invitationContent.scrollIntoView({
-    behavior: "auto",
-    block: "start"
+    if (invitationContent) {
+      invitationContent.classList.remove("hidden");
+      invitationContent.classList.add("revealed");
+      invitationContent.scrollIntoView({
+        behavior: "auto",
+        block: "start"
+      });
+    }
+
+    botonAbrir.textContent = "INVITACIÓN ABIERTA ✦";
+    botonAbrir.disabled = true;
   });
 });
-    });
-  }
-});
+
 </script>
 </body>
 
