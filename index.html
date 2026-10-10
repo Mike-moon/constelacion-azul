@@ -478,9 +478,10 @@ body.invitation-opening {
 }
 
     
+
 /* Cielo decorativo de Constelación Azul */
 .hero::before {
-  content: "✦     ·       ✧        ·     ✦";
+  content: "✦       ·          ✧       ·       ✦";
   position: absolute;
   top: 8%;
   left: 0;
@@ -492,9 +493,17 @@ body.invitation-opening {
   opacity: 0.7;
   pointer-events: none;
   z-index: 0;
-  animation: twinkle 3s ease-in-out infinite;
+  animation: cieloTitilante 4s ease-in-out infinite;
 }
 
+@keyframes cieloTitilante {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
     
   </style>
 </head>
