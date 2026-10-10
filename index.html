@@ -1054,32 +1054,39 @@ body.invitation-opening {
 
   </main>
 
-  <script>
-    const openButton = document.getElementById("openButton");
-    const invitationContent = document.getElementById("invitationContent");
-    const memoriesButton = document.getElementById("memoriesButton");
-    const moreMemories = document.getElementById("moreMemories");
+  
+<script>
+  const openButton = document.getElementById("openButton");
+  const invitationContent = document.getElementById("invitationContent");
+  const memoriesButton = document.getElementById("memoriesButton");
+  const moreMemories = document.getElementById("moreMemories");
 
+  if (openButton && invitationContent) {
     openButton.addEventListener("click", () => {
       invitationContent.classList.remove("hidden");
       invitationContent.classList.add("revealed");
+
       openButton.textContent = "INVITACIÓN ABIERTA ✦";
       openButton.disabled = true;
 
-     
-invitationContent.scrollIntoView({
-  behavior: "auto",
-  block: "start"
-});
+      invitationContent.scrollIntoView({
+        behavior: "auto",
+        block: "start"
+      });
+    });
+  }
 
-
+  if (memoriesButton && moreMemories) {
     memoriesButton.addEventListener("click", () => {
       moreMemories.classList.remove("hidden");
       moreMemories.classList.add("revealed");
+
       memoriesButton.textContent = "RECUERDOS DESCUBIERTOS ✦";
       memoriesButton.disabled = true;
     });
-  </script>
+  }
+</script>
+
   
 <script>
 
