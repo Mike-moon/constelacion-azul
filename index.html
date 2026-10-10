@@ -73,8 +73,7 @@
       font-size: 44px;
       margin-bottom: 25px;
       text-shadow: 0 0 25px #a779ff;
-      animation: twinkle 3s infinite alternate;
-    }
+animation: twinkle 2.5s ease-in-out infinite;    }
 
     .eyebrow {
       color: var(--blue);
@@ -256,9 +255,16 @@
     }
 
     @keyframes twinkle {
-      from { opacity: .65; }
-      to { opacity: 1; text-shadow: 0 0 35px #a779ff; }
-    }
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
 
     @media (max-width: 600px) {
       .gallery {
