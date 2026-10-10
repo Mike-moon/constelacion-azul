@@ -790,11 +790,12 @@ body.invitation-opening {
       openButton.textContent = "INVITACIÓN ABIERTA ✦";
       openButton.disabled = true;
 
-      invitationContent.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+     
+invitationContent.scrollIntoView({
+  behavior: "auto",
+  block: "start"
+});
+
 
     memoriesButton.addEventListener("click", () => {
       moreMemories.classList.remove("hidden");
