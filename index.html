@@ -825,15 +825,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const contenido = document.querySelectorAll(
         "section, .gallery, .collage, .letter, .music-section"
       );
-
-      contenido.forEach((elemento, indice) => {
-        if (elemento.getClientRects().length > 0) {
-          elemento.classList.remove("reveal-animation");
-          window.setTimeout(() => {
-            elemento.classList.add("reveal-animation");
-          }, indice * 120);
-        }
-      });
+// Se conservan las animaciones originales de cada sección.
     });
   }
 });
